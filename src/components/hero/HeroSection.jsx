@@ -23,6 +23,18 @@ export default function HeroSection() {
     offset: ['start start', 'end end'],
   })
 
+  const darkenOpacity = useTransform(
+    scrollYProgress,
+    [SCROLL.taglineStart, SCROLL.taglineEnd],
+    [0, 0.5],
+  )
+
+  const contentOpacity = useTransform(
+    scrollYProgress,
+    [SCROLL.scaleStart, SCROLL.scaleEnd],
+    [1, 0],
+  )
+
   const scale = useTransform(
     scrollYProgress,
     prefersReducedMotion ? [0, 1] : [SCROLL.scaleStart, SCROLL.scaleEnd],
@@ -95,9 +107,19 @@ export default function HeroSection() {
           className="relative h-full origin-center overflow-hidden bg-ink-950"
         >
           <HeroCanvas enabled={canvasEnabled} />
+
+          {/* Stage 2 — background darkens as you scroll into the taglines */}
+          <motion.div
+            style={{ opacity: darkenOpacity }}
+            className="pointer-events-none absolute inset-0 bg-ink-950"
+          />
+
           <div className="hero-vignette pointer-events-none absolute inset-0" />
           <Navbar variant="hero" />
-          <HeroContent activeTagline={activeTagline} />
+
+          {/* Stage 4 — text block fades as the card scales down */}
+          <HeroContent activeTagline={activeTagline} opacity={contentOpacity} />
+
           <ScrollCue opacity={scrollCueOpacity} />
         </motion.div>
       </div>

@@ -1,7 +1,7 @@
 export const TAGLINES = [
-  'Explore the selected portfolio of visual artist Elena Petrova — light, motion, and the space between memory and image.',
-  'Wayfinding, motion identity, and spatial narratives across print and screen.',
-  'Selected works from 2019–2026 — strategy, exhibition, and generative light.',
+  { text: '', emphasis: false },                    // 0% — just the H1 question
+  { text: 'Because I’m always…', emphasis: false }, // ~30% — the setup
+  { text: 'One keystroke ahead.', emphasis: true }, // ~60% — the punchline
 ]
 
 export const SCROLL = {

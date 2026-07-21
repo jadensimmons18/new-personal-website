@@ -2,7 +2,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { TAGLINES } from '../../lib/scrollConfig'
 
 export default function HeroContent({ activeTagline = 0, animateOnMount = true, opacity = 1 }) {
-  // Accept either plain strings or { text, emphasis } objects from scrollConfig
   const raw = TAGLINES[activeTagline] ?? TAGLINES[0]
   const tagline = typeof raw === 'string' ? { text: raw, emphasis: false } : raw
 
