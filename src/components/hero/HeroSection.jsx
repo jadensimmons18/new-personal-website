@@ -6,7 +6,7 @@ import {
   useTransform,
   useMotionValueEvent,
 } from "framer-motion";
-import Navbar from "../layout/Navbar";
+
 import HeroCanvas from "./HeroCanvas";
 import HeroContent from "./HeroContent";
 import ScrollCue from "./ScrollCue";
@@ -92,7 +92,6 @@ export default function HeroSection() {
       <section className="relative min-h-[640px] h-screen overflow-hidden bg-ink-950">
         <HeroCanvas enabled={canvasEnabled} />
         <div className="hero-vignette pointer-events-none absolute inset-0" />
-        <Navbar variant="hero" />
         <HeroContent activeTagline={TAGLINES.length - 1} animateOnMount />
       </section>
     );
@@ -118,7 +117,6 @@ export default function HeroSection() {
           />
 
           <div className="hero-vignette pointer-events-none absolute inset-0" />
-          <Navbar variant="hero" />
 
           {/* Stage 4 — text block fades as the card scales down */}
           <HeroContent activeTagline={activeTagline} opacity={contentOpacity} />

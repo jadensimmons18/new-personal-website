@@ -1,4 +1,3 @@
-import Navbar from '../layout/Navbar'
 import ProjectsGrid from './ProjectsGrid'
 import projects from '../../data/projectsData'
 
@@ -8,7 +7,6 @@ export default function ProjectsSection({ id = 'projects' }) {
       id={id}
       className="relative z-10 min-h-screen overflow-hidden bg-white font-sans text-neutral-950"
     >
-      <Navbar variant="projects" />
 
       <header className="relative z-40 px-6 pb-[30px] pt-[88px] text-center md:px-6">
         <div className="mb-[26px] font-mono text-[11px] tracking-[0.4em] text-brand-600">
