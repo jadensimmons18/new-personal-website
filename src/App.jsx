@@ -1,12 +1,15 @@
 import HeroSection from './components/hero/HeroSection'
 import ProjectsSection from './components/projects/ProjectsSection'
+import SmoothScroll from './components/SmoothScroll'
 
 function App() {
   return (
-    <div className="bg-white">
-      <HeroSection />
-      <ProjectsSection id="projects" />
-    </div>
+    <SmoothScroll>
+      <div className="bg-white">
+        <HeroSection />
+        <ProjectsSection id="projects" />
+      </div>
+    </SmoothScroll>
   )
 }
 
