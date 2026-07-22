@@ -6,7 +6,7 @@ export default function HeroCanvas({ enabled = true }) {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 block h-full w-full"
+      className="hero-canvas"
       aria-hidden="true"
     />
   )

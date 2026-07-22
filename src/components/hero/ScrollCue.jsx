@@ -4,11 +4,11 @@ export default function ScrollCue({ opacity = 1 }) {
   return (
     <motion.div
       style={{ opacity }}
-      className="absolute bottom-[34px] left-0 right-0 z-50 flex flex-col items-center gap-[11px]"
+      className="scroll-cue"
     >
-      <div className="font-mono text-[10.5px] tracking-[0.34em] text-[rgba(180,205,255,0.72)]">
+      <div className="scroll-cue__label">
         EXPLORE&nbsp;
-        <span className="text-[rgba(130,175,255,0.5)]">//</span>
+        <span className="scroll-cue__slash">//</span>
         &nbsp;SCROLL&nbsp;DOWN
       </div>
       <svg

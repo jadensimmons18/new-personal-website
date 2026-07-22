@@ -3,25 +3,21 @@ import projects from '../../data/projectsData'
 
 export default function ProjectsSection({ id = 'projects' }) {
   return (
-    <section
-      id={id}
-      className="relative z-10 min-h-screen overflow-hidden bg-white font-sans text-neutral-950"
-    >
-
-      <header className="relative z-40 px-6 pb-[30px] pt-[88px] text-center md:px-6">
-        <div className="mb-[26px] font-mono text-[11px] tracking-[0.4em] text-brand-600">
+    <section id={id} className="light-section">
+      <header className="projects-header">
+        <div className="projects-header__index">
           PROJECT&nbsp;INDEX&nbsp;—&nbsp;2019&nbsp;·&nbsp;2026
         </div>
-        <h1 className="m-0 text-projects-title font-bold text-neutral-950">
+        <h1 className="projects-header__title">
           Selected
           <br />
-          <span className="font-serif font-medium italic tracking-normal">Works.</span>
+          <span className="projects-header__title-emphasis">Works.</span>
         </h1>
       </header>
 
       <ProjectsGrid projects={projects} />
 
-      <div className="h-24" aria-hidden="true" />
+      <div className="projects-spacer" aria-hidden="true" />
     </section>
   )
 }

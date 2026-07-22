@@ -1,0 +1,119 @@
+/* Hero section + content + canvas + scroll cue */
+
+.hero-section--reduced {
+  position: relative;
+  min-height: 640px;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--color-ink-950);
+}
+
+.hero-section {
+  position: relative;
+  background-color: var(--color-white);
+}
+
+.hero-section__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-section__stage {
+  position: relative;
+  height: 100%;
+  transform-origin: center;
+  overflow: hidden;
+  background-color: var(--color-ink-950);
+}
+
+.hero-section__darken,
+.hero-vignette,
+.hero-content {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.hero-section__darken {
+  background-color: var(--color-ink-950);
+}
+
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* HeroContent */
+.hero-content {
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem;
+  text-align: center;
+}
+
+.hero-headline {
+  margin: 0;
+  font-size: clamp(38px, 6.4vw, 104px);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  color: var(--color-mist-50);
+  text-shadow: 0 4px 60px rgba(0, 20, 60, 0.9);
+}
+
+.hero-headline__emphasis {
+  font-family: var(--font-serif);
+  font-size: 1em;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: normal;
+}
+
+.hero-punch {
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-mist-50);
+  font-size: clamp(1.6rem, 4.4vw, 2.7rem);
+  text-shadow: 0 2px 44px rgba(120, 170, 255, 0.55);
+}
+
+.hero-lead {
+  margin: 0;
+  font-weight: 500;
+  color: rgba(200, 218, 255, 0.86);
+  font-size: clamp(1.05rem, 2.5vw, 1.5rem);
+}
+
+/* ScrollCue */
+.scroll-cue {
+  position: absolute;
+  bottom: 34px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+}
+
+.scroll-cue__label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.34em;
+  color: rgba(180, 205, 255, 0.72);
+}
+
+.scroll-cue__slash {
+  color: rgba(130, 175, 255, 0.5);
+}
