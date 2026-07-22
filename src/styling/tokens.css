@@ -1,0 +1,32 @@
+/* Design tokens — translated from tailwind.config.js */
+:root {
+  /* Colors */
+  --color-ink-800: #0c2247;
+  --color-ink-900: #06142e;
+  --color-ink-950: #02060f;
+  --color-mist-50: #f4f8ff;
+  --color-mist-200: #d2e1fa;
+  --color-brand-600: #2b5fd0;
+  --color-neutral-950: #0a0a0a;
+  --color-sky-200: #bae6fd;
+  --color-white: #ffffff;
+
+  /* Fonts */
+  --font-sans: 'Sora', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Letter spacing */
+  --tracking-label: 0.16em;
+  --tracking-label-wide: 0.42em;
+  --tracking-nav: 0.22em;
+
+  /* Layout */
+  --max-w-nav: 1180px;
+  --max-w-projects: 1200px;
+
+  /* Breakpoints (for reference — used in media queries below)
+     md: 768px
+     lg: 1024px
+  */
+}

@@ -1,0 +1,90 @@
+@import './tokens.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-white);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Shared: frosted nav pill (was .nav-glass utility) */
+.nav-glass {
+  border-radius: 9999px;
+  border: 1px solid rgba(186, 230, 253, 0.15); /* sky-200/15 */
+  background: rgba(9, 18, 38, 0.32);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Shared: hero edge darkening (was .hero-vignette utility) */
+.hero-vignette {
+  background: radial-gradient(
+    120% 90% at 50% 52%,
+    rgba(2, 6, 15, 0) 42%,
+    rgba(2, 6, 15, 0.55) 82%,
+    rgba(2, 6, 15, 0.9) 100%
+  );
+}
+
+/* Shared light page sections (projects / about) */
+.light-section {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--color-white);
+  font-family: var(--font-sans);
+  color: var(--color-neutral-950);
+}
+
+/* Keyframes from tailwind.config.js */
+@keyframes float-arrow {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translateY(7px);
+    opacity: 0.35;
+  }
+}
+
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-arrow {
+  animation: float-arrow 1.8s ease-in-out infinite;
+}
+
+.animate-reveal-up {
+  animation: reveal-up 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.animate-reveal-up-delay-1 {
+  animation: reveal-up 1.3s 0.12s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.animate-reveal-up-delay-2 {
+  animation: reveal-up 1.4s 0.28s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}

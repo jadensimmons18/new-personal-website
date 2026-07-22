@@ -89,9 +89,9 @@ export default function HeroSection() {
 
   if (prefersReducedMotion) {
     return (
-      <section className="relative min-h-[640px] h-screen overflow-hidden bg-ink-950">
+      <section className="hero-section--reduced">
         <HeroCanvas enabled={canvasEnabled} />
-        <div className="hero-vignette pointer-events-none absolute inset-0" />
+        <div className="hero-vignette" />
         <HeroContent activeTagline={TAGLINES.length - 1} animateOnMount />
       </section>
     );
@@ -100,23 +100,23 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-white"
+      className="hero-section"
       style={{ height: SCROLL.sectionHeight }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="hero-section__sticky">
         <motion.div
           style={{ scale, borderRadius }}
-          className="relative h-full origin-center overflow-hidden bg-ink-950"
+          className="hero-section__stage"
         >
           <HeroCanvas enabled={canvasEnabled} />
 
           {/* Stage 2 — background darkens as you scroll into the taglines */}
           <motion.div
             style={{ opacity: darkenOpacity }}
-            className="pointer-events-none absolute inset-0 bg-ink-950"
+            className="hero-section__darken"
           />
 
-          <div className="hero-vignette pointer-events-none absolute inset-0" />
+          <div className="hero-vignette" />
 
           {/* Stage 4 — text block fades as the card scales down */}
           <HeroContent activeTagline={activeTagline} opacity={contentOpacity} />

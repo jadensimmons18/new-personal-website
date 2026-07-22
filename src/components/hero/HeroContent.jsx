@@ -6,13 +6,11 @@ function TaglineBody({ tagline, animateOnMount }) {
   if (tagline.variant === 'headline') {
     return (
       <h1
-        className={`m-0 text-hero-title font-bold text-mist-50 [text-shadow:0_4px_60px_rgba(0,20,60,0.9)] ${
-          animateOnMount ? 'animate-reveal-up-delay-1' : ''
-        }`}
+        className={`hero-headline${animateOnMount ? ' animate-reveal-up-delay-1' : ''}`}
       >
         Why should you
         <br />
-        <span className="font-serif text-[1em] font-medium italic tracking-normal">
+        <span className="hero-headline__emphasis">
           Hire&nbsp;Me?
         </span>
       </h1>
@@ -21,7 +19,7 @@ function TaglineBody({ tagline, animateOnMount }) {
 
   if (tagline.variant === 'punch') {
     return (
-      <p className="m-0 font-bold uppercase tracking-[0.05em] text-mist-50 text-[clamp(1.6rem,4.4vw,2.7rem)] [text-shadow:0_2px_44px_rgba(120,170,255,0.55)]">
+      <p className="hero-punch">
         {tagline.text}
       </p>
     )
@@ -29,7 +27,7 @@ function TaglineBody({ tagline, animateOnMount }) {
 
   // 'lead' and any default
   return (
-    <p className="m-0 font-medium text-[rgba(200,218,255,0.86)] text-[clamp(1.05rem,2.5vw,1.5rem)]">
+    <p className="hero-lead">
       {tagline.text}
     </p>
   )
@@ -46,7 +44,7 @@ export default function HeroContent({ activeTagline = 0, animateOnMount = true, 
   return (
     <motion.div
       style={{ opacity }}
-      className="pointer-events-none absolute inset-0 z-40 flex items-center justify-center px-6 text-center"
+      className="hero-content"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.div

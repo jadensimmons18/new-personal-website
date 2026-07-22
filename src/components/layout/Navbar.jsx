@@ -6,16 +6,16 @@ const NAV_LINKS = [
 
 export default function Navbar({ variant = 'hero' }) {
   return (
-    <nav className="fixed top-[26px] left-0 right-0 z-50 flex justify-center px-[34px]">
-      <div className="nav-glass grid w-full max-w-nav grid-cols-[1fr_auto_1fr] items-center gap-6 px-[22px] py-[13px]">
-        <div className="whitespace-nowrap font-mono text-[11px] tracking-label text-[rgba(214,230,255,0.78)]">
+    <nav className="navbar">
+      <div className="nav-glass navbar__inner">
+        <div className="navbar__brand">
           Jaden&nbsp;Simmons&nbsp;
-          <span className="text-[rgba(140,180,255,0.55)]">// Software Engineer</span>
+          <span className="navbar__brand-meta">// Software Engineer</span>
         </div>
 
-        <div className="hidden items-center justify-center gap-[30px] text-[11px] font-semibold tracking-nav text-[rgba(224,236,255,0.9)] md:flex">
+        <div className="navbar__links">
           {NAV_LINKS.map((link) => (
-            <a key={link.label} href={link.href} className="transition-opacity hover:opacity-70">
+            <a key={link.label} href={link.href} className="navbar__link">
               {link.label}
             </a>
           ))}

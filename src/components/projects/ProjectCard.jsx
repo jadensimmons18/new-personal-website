@@ -12,11 +12,11 @@ export default function ProjectCard({
 }) {
   return (
     <div>
-      <div className="mb-5 font-mono text-[11px] tracking-[0.14em] text-brand-600">
+      <div className="project-card__meta">
         {String(index).padStart(2, '0')}&nbsp;&nbsp;·&nbsp;&nbsp;{category}
       </div>
 
-      <h2 className="m-0 text-project-heading font-bold text-neutral-950">
+      <h2 className="project-card__title">
         {title}
         {titleLine2 && (
           <>
@@ -27,21 +27,18 @@ export default function ProjectCard({
         {titleItalic && (
           <>
             <br />
-            <span className="font-serif font-medium italic">{titleItalic}</span>
+            <span className="project-card__title-italic">{titleItalic}</span>
           </>
         )}
       </h2>
 
-      <div className="mt-[34px] text-base font-semibold text-neutral-950">{subtitle}</div>
+      <div className="project-card__subtitle">{subtitle}</div>
 
-      <p className="mt-3.5 max-w-[400px] text-[14.5px] font-light leading-[1.72] text-neutral-950/60">
+      <p className="project-card__description">
         {description}
       </p>
 
-      <a
-        href={href}
-        className="mt-[30px] inline-flex items-center gap-2 border-b border-brand-600/35 pb-[5px] font-mono text-[11.5px] tracking-[0.12em] text-brand-600 transition-opacity hover:opacity-70"
-      >
+      <a href={href} className="project-card__link">
         VIEW&nbsp;CASE&nbsp;STUDY
         <ArrowRight size={14} strokeWidth={1.5} aria-hidden="true" />
       </a>
