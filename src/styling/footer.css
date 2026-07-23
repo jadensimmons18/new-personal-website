@@ -1,0 +1,73 @@
+/* Compact connect footer — closes the page under projects */
+
+.site-footer {
+  position: relative;
+  z-index: 10;
+  /* Same dark-navy family as project media cards (#0b1a36 → #040a18) */
+  background: linear-gradient(135deg, #0b1a36, #061024 58%, #040a18);
+  color: rgba(214, 230, 255, 0.78);
+  padding: 2.75rem 1.5rem 2.25rem;
+  scroll-margin-top: 40px;
+}
+
+.site-footer__inner {
+  margin: 0 auto;
+  max-width: var(--max-w-projects);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  text-align: center;
+}
+
+.site-footer__eyebrow {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(180, 205, 255, 0.55);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(224, 236, 255, 0.9);
+  transition: opacity 150ms ease, color 150ms ease;
+}
+
+.site-footer__link:hover {
+  color: var(--color-mist-50);
+  opacity: 0.75;
+}
+
+.site-footer__credit {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  color: rgba(140, 180, 255, 0.45);
+}
+
+@media (min-width: 768px) {
+  .site-footer {
+    padding-left: 46px;
+    padding-right: 46px;
+  }
+}
