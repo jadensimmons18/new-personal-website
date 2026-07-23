@@ -8,7 +8,6 @@
 
 .about-section__inner {
   margin: 0 auto;
-  max-width: 1100px;
 }
 
 /* —— Header (stays centered) —— */
@@ -163,14 +162,14 @@
 
 @media (min-width: 900px) {
   .about-section {
-    padding-left: 46px;
-    padding-right: 46px;
+    padding-left: clamp(46px, 8vw, 200px); /* Min gap, rate of growth, max gap */
+    padding-right: clamp(46px, 8vw, 200px);
     padding-bottom: 6.5rem;
   }
 
   .about-layout {
     grid-template-columns: minmax(240px, 400px) minmax(0, 1fr);
-    gap: 4.5rem;
+    gap: clamp(2.5rem, 6vw, 10rem);
     align-items: center;
   }
 
