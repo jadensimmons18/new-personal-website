@@ -13,5 +13,5 @@ export const SCROLL = {
   scaleTo: 0.85,
   radiusTo: 24,
   scrollCueFadeEnd: 0.3,
-  sectionHeight: '1000vh',
+  sectionHeight: '300vh',
 }

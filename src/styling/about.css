@@ -1,2 +1,186 @@
-/* About section — currently shares the light-section shell with projects.
-   Add about-specific rules here as the section content grows. */
+/* About section — centered title, portrait left, copy right */
+
+.about-section {
+  padding: 110px;
+  scroll-margin-top: 40px;
+  min-height: 0; /* Overides light-section from base.css */
+}
+
+.about-section__inner {
+  margin: 0 auto;
+}
+
+/* —— Header (stays centered) —— */
+.about-header {
+  margin-bottom: 3.25rem;
+  text-align: center;
+}
+
+.about-header__eyebrow {
+  margin: 0 0 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-brand-600);
+}
+
+.about-header__title {
+  margin: 0;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: var(--color-neutral-950);
+}
+
+.about-header__title-emphasis {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: normal;
+}
+
+/* —— Two-column: portrait | copy —— */
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.about-portrait {
+  position: relative;
+  width: min(260px, 70vw);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(43, 95, 208, 0.28);
+  box-shadow:
+    0 24px 60px -28px rgba(0, 15, 55, 0.45),
+    inset 0 0 0 6px rgba(255, 255, 255, 0.65);
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(244, 248, 255, 0.95),
+      rgba(210, 225, 250, 0.55) 45%,
+      rgba(43, 95, 208, 0.18) 100%
+    );
+}
+
+/* Soft placeholder cue until /portrait.jpg exists */
+.about-portrait::after {
+  content: 'Your photo';
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(43, 95, 208, 0.55);
+  pointer-events: none;
+}
+
+.about-portrait__image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+  text-align: right;
+}
+
+.about-body {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.75;
+  letter-spacing: -0.01em;
+  text-align: right;
+  color: rgba(10, 10, 10, 0.62);
+}
+
+.about-skills {
+  margin: 0;
+  text-align: right;
+}
+
+.about-skills__heading {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  color: var(--color-neutral-950);
+}
+
+.about-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.7rem 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-skills-list li {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-brand-600);
+}
+
+.about-skills-list li:not(:first-child)::before {
+  content: '·';
+  position: absolute;
+  left: -0.05rem;
+  color: rgba(43, 95, 208, 0.35);
+  pointer-events: none;
+}
+
+.about-spacer {
+  height: 4.5rem;
+}
+
+@media (min-width: 900px) {
+  .about-section {
+    padding-left: clamp(46px, 8vw, 200px); /* Min gap, rate of growth, max gap */
+    padding-right: clamp(46px, 8vw, 200px);
+    padding-bottom: 6.5rem;
+  }
+
+  .about-layout {
+    grid-template-columns: minmax(240px, 400px) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 10rem);
+    align-items: center;
+  }
+
+  .about-portrait {
+    width: 100%;
+    max-width: 400px;
+    margin: 0;
+  }
+
+  .about-body {
+    font-size: 1.2rem;
+    line-height: 1.8;
+  }
+}
