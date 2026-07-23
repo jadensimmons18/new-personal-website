@@ -3,6 +3,7 @@
 .about-section {
   padding: 110px;
   scroll-margin-top: 40px;
+  min-height: 0; /* Overides light-section from base.css */
 }
 
 .about-section__inner {
@@ -168,14 +169,14 @@
   }
 
   .about-layout {
-    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    grid-template-columns: minmax(240px, 400px) minmax(0, 1fr);
     gap: 4.5rem;
     align-items: center;
   }
 
   .about-portrait {
     width: 100%;
-    max-width: 320px;
+    max-width: 400px;
     margin: 0;
   }
 

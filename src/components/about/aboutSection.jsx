@@ -23,8 +23,6 @@ export default function AboutSection() {
               }}
             />
           </figure>
-
-          <div className="about-copy">
             <p className="about-body">
               I'm not just building apps, I'm building what's next. As a Computer
               Science student at UCF heading into my senior year, I'm laser-focused
@@ -33,8 +31,8 @@ export default function AboutSection() {
               it's the one that changes everything. The future of technology is being
               written right now, and I intend to be one of the people holding the pen.
             </p>
-
-            <div className="about-skills">
+        </div>
+        <div className="about-skills">
               <h3 className="about-skills__heading">What I can do.</h3>
               <ul className="about-skills-list">
                 <li>MERN stack</li>
@@ -47,10 +45,7 @@ export default function AboutSection() {
                 <li>Express</li>
               </ul>
             </div>
-          </div>
-        </div>
       </div>
-
       <div className="about-spacer" aria-hidden="true" />
     </section>
   )
