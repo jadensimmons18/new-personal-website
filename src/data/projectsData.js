@@ -1,6 +1,6 @@
-import financeManager from '../assets/finance-dash.png'
-import contactManager from '../assets/contact-manager.png'
-import vmDemo from '../assets/vm-demo.mov'
+import financeManager from '../assets/finance-manager.mp4'
+import contactManager from '../assets/contact-manager.mp4'
+import vmDemo from '../assets/vm-demo.mp4'
 
 const projects = [
   {
@@ -15,7 +15,7 @@ const projects = [
       'Log every transaction, review monthly spending, and see which categories take the biggest bite out of your budget — a clear picture of where your money goes.',
     href: 'https://g7usercapitalflow.com/login',
     linkLabel: 'VIEW SITE',
-    image: financeManager,
+    video: financeManager,
     mediaLabel: 'PROJECT 01 · FULL-STACK',
     mediaPlaceholder: '[ APP SCREEN · 4:3 ]',
     mediaGradient: 'linear-gradient(135deg, #0b1a36, #061024 58%, #040a18)',
@@ -35,7 +35,7 @@ const projects = [
       'Add, edit, search, and delete contacts in one place — a full-stack app for keeping your network organized and easy to find.',
     href: 'http://contactmanager7.xyz/index.html',
     linkLabel: 'VIEW SITE',
-    image: contactManager,
+    video: contactManager,
     mediaLabel: 'PROJECT 02 · FULL-STACK',
     mediaPlaceholder: '[ APP SCREEN · 16:9 ]',
     mediaGradient: 'linear-gradient(135deg, #04122c, #0a1a3a 55%, #050c1c)',
