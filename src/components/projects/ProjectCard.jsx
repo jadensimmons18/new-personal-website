@@ -9,6 +9,7 @@ export default function ProjectCard({
   subtitle,
   description,
   href,
+  linkLabel = 'VIEW SITE',
 }) {
   return (
     <div>
@@ -38,8 +39,13 @@ export default function ProjectCard({
         {description}
       </p>
 
-      <a href={href} className="project-card__link">
-        VIEW&nbsp;CASE&nbsp;STUDY
+      <a
+        href={href}
+        className="project-card__link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {linkLabel.split(' ').join('\u00A0')}
         <ArrowRight size={14} strokeWidth={1.5} aria-hidden="true" />
       </a>
     </div>

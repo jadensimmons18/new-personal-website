@@ -151,6 +151,22 @@
   box-shadow: 0 40px 90px -40px rgba(0, 15, 55, 0.9);
 }
 
+.project-media__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top; /* change THIS one — left / center / right or e.g. 20% top */
+  display: block;
+}
+
+.project-media__video {
+  object-position: center;
+  pointer-events: none;
+  background: #040a18;
+}
+
 .project-media__layer {
   position: absolute;
   inset: 0;

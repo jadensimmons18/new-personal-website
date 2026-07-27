@@ -23,6 +23,8 @@ export default function ProjectsGrid({ projects }) {
             >
               <ProjectMedia
                 mediaLabel={project.mediaLabel}
+                image={project.image}
+                video={project.video}
                 mediaPlaceholder={project.mediaPlaceholder}
                 mediaGradient={project.mediaGradient}
                 stripeAngle={project.stripeAngle}
