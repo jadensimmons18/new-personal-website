@@ -164,7 +164,13 @@
 .project-media__video {
   object-position: center;
   pointer-events: none;
-  background: #040a18;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.project-media__video.is-playing {
+  opacity: 1;
 }
 
 .project-media__layer {

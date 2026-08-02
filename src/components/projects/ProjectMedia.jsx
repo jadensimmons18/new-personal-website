@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 export default function ProjectMedia({
   image,
@@ -10,12 +10,15 @@ export default function ProjectMedia({
   radialPosition = '68% 32%',
 }) {
   const videoRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
   const hasMedia = Boolean(image || video)
 
   const playVideo = () => {
     const el = videoRef.current
     if (!el) return
-    el.play().catch(() => {})
+    el.play()
+      .then(() => setIsPlaying(true))
+      .catch(() => {})
   }
 
   const stopVideo = () => {
@@ -23,6 +26,7 @@ export default function ProjectMedia({
     if (!el) return
     el.pause()
     el.currentTime = 0
+    setIsPlaying(false)
   }
 
   return (
@@ -32,23 +36,34 @@ export default function ProjectMedia({
       onMouseEnter={video ? playVideo : undefined}
       onMouseLeave={video ? stopVideo : undefined}
     >
-      {video ? (
-        <video
-          ref={videoRef}
-          className="project-media__image project-media__video"
-          src={video}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        />
-      ) : image ? (
+      {image ? (
         <img
           src={image}
           alt=""
           className="project-media__image"
         />
-      ) : (
+      ) : null}
+
+      {video ? (
+        <video
+          ref={videoRef}
+          className={[
+            'project-media__image',
+            'project-media__video',
+            isPlaying ? 'is-playing' : '',
+          ]
+            .filter(Boolean)
+            .join(' ')}
+          src={video}
+          poster={image}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        />
+      ) : null}
+
+      {!image && !video ? (
         <>
           <div
             className="project-media__layer"
@@ -66,7 +81,7 @@ export default function ProjectMedia({
             {mediaPlaceholder}
           </div>
         </>
-      )}
+      ) : null}
 
       <div className="project-media__label">
         {mediaLabel}

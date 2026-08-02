@@ -1,6 +1,9 @@
 import financeManager from '../assets/finance-manager.mp4'
 import contactManager from '../assets/contact-manager.mp4'
 import vmDemo from '../assets/vm-demo.mp4'
+import financeManagerPoster from '../assets/finance-manager.jpg'
+import contactManagerPoster from '../assets/contact-manager.jpg'
+import vmDemoPoster from '../assets/vm-demo.jpg'
 
 const projects = [
   {
@@ -15,6 +18,7 @@ const projects = [
       'Log every transaction, review monthly spending, and see which categories take the biggest bite out of your budget — a clear picture of where your money goes.',
     href: 'https://g7usercapitalflow.com/login',
     linkLabel: 'VIEW SITE',
+    image: financeManagerPoster,
     video: financeManager,
     mediaLabel: 'PROJECT 01 · FULL-STACK',
     mediaPlaceholder: '[ APP SCREEN · 4:3 ]',
@@ -35,6 +39,7 @@ const projects = [
       'Add, edit, search, and delete contacts in one place — a full-stack app for keeping your network organized and easy to find.',
     href: 'http://contactmanager7.xyz/index.html',
     linkLabel: 'VIEW SITE',
+    image: contactManagerPoster,
     video: contactManager,
     mediaLabel: 'PROJECT 02 · FULL-STACK',
     mediaPlaceholder: '[ APP SCREEN · 16:9 ]',
@@ -56,6 +61,7 @@ const projects = [
     href: 'https://github.com/jadensimmons18/Custom-Virtual-Machine-Language-Parser',
     linkLabel: 'VIEW GITHUB',
     mediaLabel: 'PROJECT 03 · SYSTEMS',
+    image: vmDemoPoster,
     video: vmDemo,
     mediaPlaceholder: '[ VM · COMPILER · C ]',
     mediaGradient: 'linear-gradient(135deg, #0b1a36, #071230 60%, #040a18)',
