@@ -9,7 +9,7 @@ const BLUES = [
   '130,185,255',
 ]
 
-const RAY_COUNT = 300
+const RAY_COUNT = 200
 
 function createRays() {
   const rays = []
