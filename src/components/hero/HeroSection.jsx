@@ -4,7 +4,6 @@ import {
   useReducedMotion,
   useScroll,
   useTransform,
-  useMotionValueEvent,
 } from "framer-motion";
 
 import HeroCanvas from "./HeroCanvas";
@@ -14,7 +13,6 @@ import { SCROLL, TAGLINES } from "../../lib/scrollConfig";
 
 export default function HeroSection() {
   const containerRef = useRef(null);
-  const [activeTagline, setActiveTagline] = useState(0);
   const [canvasEnabled, setCanvasEnabled] = useState(true);
   const prefersReducedMotion = useReducedMotion();
 
@@ -32,7 +30,7 @@ export default function HeroSection() {
   const contentOpacity = useTransform(
     scrollYProgress,
     [SCROLL.scaleStart, SCROLL.scaleEnd],
-    [1, 0, 0],
+    [1, 0],
   );
 
   const scale = useTransform(
@@ -53,27 +51,6 @@ export default function HeroSection() {
     [1, 0],
   );
 
-  const band = SCROLL.taglineEnd - SCROLL.taglineStart;
-  // 0 and 2 hold for free outside the band, so spend the band mostly on the
-  // middle line — just quick hand-offs at each edge.
-  const enter = SCROLL.taglineStart + band * 0.18; // headline → "Because I'm always…"
-  const exit = SCROLL.taglineStart + band * 0.82; // "Because I'm always…" → punchline
-
-  const taglineProgress = useTransform(
-    scrollYProgress,
-    prefersReducedMotion
-      ? [0, 1]
-      : [SCROLL.taglineStart, enter, exit, SCROLL.taglineEnd],
-    prefersReducedMotion
-      ? [TAGLINES.length - 1, TAGLINES.length - 1]
-      : [0, 1, 1, 2],
-  );
-
-  useMotionValueEvent(taglineProgress, "change", (value) => {
-    const index = Math.min(TAGLINES.length - 1, Math.max(0, Math.round(value)));
-    setActiveTagline(index);
-  });
-
   useEffect(() => {
     const node = containerRef.current;
     if (!node) return undefined;
@@ -92,7 +69,11 @@ export default function HeroSection() {
       <section className="hero-section--reduced">
         <HeroCanvas enabled={canvasEnabled} />
         <div className="hero-vignette" />
-        <HeroContent activeTagline={TAGLINES.length - 1} animateOnMount />
+        <HeroContent
+          scrollYProgress={scrollYProgress}
+          staticTaglineIndex={TAGLINES.length - 1}
+          animateOnMount
+        />
       </section>
     );
   }
@@ -110,7 +91,6 @@ export default function HeroSection() {
         >
           <HeroCanvas enabled={canvasEnabled} />
 
-          {/* Stage 2 — background darkens as you scroll into the taglines */}
           <motion.div
             style={{ opacity: darkenOpacity }}
             className="hero-section__darken"
@@ -118,8 +98,11 @@ export default function HeroSection() {
 
           <div className="hero-vignette" />
 
-          {/* Stage 4 — text block fades as the card scales down */}
-          <HeroContent activeTagline={activeTagline} opacity={contentOpacity} />
+          {/* Taglines scrub with scroll — no discrete index / AnimatePresence */}
+          <HeroContent
+            scrollYProgress={scrollYProgress}
+            opacity={contentOpacity}
+          />
 
           <ScrollCue opacity={scrollCueOpacity} />
         </motion.div>

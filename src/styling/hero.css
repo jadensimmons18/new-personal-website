@@ -48,15 +48,29 @@
   width: 100%;
 }
 
-/* HeroContent */
+/* HeroContent — stacked layers so scroll can scrub multiple taglines at once */
 .hero-content {
   z-index: 40;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 1.5rem; /* px-6 */
+  padding-left: 1.5rem;
   padding-right: 1.5rem;
   text-align: center;
+  overflow: hidden;
+}
+
+.hero-content__layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  /* GPU-friendly scrubbing — avoid layout thrash while transforms update */
+  will-change: transform, opacity;
+  transform-origin: center center;
 }
 
 .hero-headline {
@@ -67,6 +81,18 @@
   font-weight: 700;
   color: var(--color-mist-50);
   text-shadow: 0 4px 60px rgba(0, 20, 60, 0.9);
+}
+
+.hero-headline--split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.02em;
+}
+
+.hero-headline__line {
+  display: block;
+  will-change: transform;
 }
 
 .hero-headline__emphasis {
